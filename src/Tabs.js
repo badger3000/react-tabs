@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './Tabs.scss'; // Import the CSS for styling
+import React, { useState } from "react";
+import "./Tabs.scss"; // Import the CSS for styling
 
 function Tabs({ tabs }) {
   // State to keep track of the active tab index, default to the first tab (index 0)
@@ -22,10 +22,10 @@ function Tabs({ tabs }) {
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`tab-button ${index === activeTabIndex ? 'active' : ''}`}
+            className={`tab-button ${index === activeTabIndex ? "active" : ""}`}
             onClick={() => handleTabClick(index)}
           >
-            {tab.title}
+            <span className="tab-title">{tab.title}</span>
             {tab.image && (
               <div className="tab-icon-wrapper">
                 <img src={tab.image} alt="" className="tab-icon" />
