@@ -31,22 +31,23 @@
 }
 
 .tab-button::before {
-  content: '';
+  width: 100%;
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 24px;
+
   height: 2px;
   background-color: #ccc;
   transition: background-color 0.3s ease;
 }
 
 .tab-button.active::before {
-  background-color: #000;
+  background-color: green;
 }
 
 .tab-button::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -78,24 +79,30 @@
 
 /* Desktop hover state */
 @media (min-width: 768px) {
+  /* All tabs should have same width */
   .tab-button {
     padding-right: 108px;
   }
 
-  .tab-button:hover {
+  .tab-button:not(:first-child):hover {
     color: #fff;
   }
 
-  .tab-button:hover::before {
+  .tab-button:not(:first-child):hover::before {
     background-color: #fff;
   }
 
-  .tab-button:hover::after {
+  .tab-button:not(:first-child):hover::after {
     height: 100%;
   }
 
-  .tab-button:hover .tab-icon {
+  .tab-button:not(:first-child):hover .tab-icon {
     transform: translateY(0);
+  }
+
+  /* First tab (All) only changes highlight color on hover */
+  .tab-button:first-child:hover::before {
+    background-color: green;
   }
 }
 
@@ -114,7 +121,7 @@
   .tab-icon {
     transform: translateY(0);
   }
-  
+
   .tab-list {
     flex-direction: column;
     gap: 16px;
@@ -122,5 +129,7 @@
 }
 
 .tab-panel {
+  max-width: 1200px;
   padding: 20px 0;
+  margin: 0 auto;
 }
