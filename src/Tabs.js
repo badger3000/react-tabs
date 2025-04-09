@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Tabs.css'; // Import the CSS for styling
+import './Tabs.scss'; // Import the CSS for styling
 
 function Tabs({ tabs }) {
   // State to keep track of the active tab index, default to the first tab (index 0)
