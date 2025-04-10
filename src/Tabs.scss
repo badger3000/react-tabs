@@ -31,7 +31,8 @@ $transition-default: all 0.3s ease;
 
 .tab-list {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  padding: 0;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -143,8 +144,17 @@ $transition-default: all 0.3s ease;
 // Mobile styles
 @media (max-width: #{$breakpoint-mobile}) {
   .tab-list {
-    overflow-y: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
     gap: 16px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pinch-zoom;
   }
 
   .tab-button {
